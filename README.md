@@ -18,15 +18,15 @@ This project explores the field of behavioral finance by examining the relations
 2. **Data Cleaning**: Cleaned the tweet text by removing usernames, URLs, stock symbols, and non-alphanumeric characters, converted the text to lowercase, and split it into individual words. The process uses regular expressions for pattern matching and the NLTK library for text preprocessing.
 3. **Emotion Extraction**: Used the Emtract model to extract emotions from the collected social media text, assigning each message a probability for 7 emotional states.
 4. **Financial Data Retrieval**: Collected financial metrics(open-close returns, market capitalisation, trading volume, and market volatility) using the Yahoo Finance API.
-5. **Model Implementation**: Implemented an Ordinary Least Square(OLS regression model with outlier removal to predict daily return values.
+5. **Model Implementation**: Implemented an Ordinary Least Square(OLS) regression model with outlier removal to predict daily return values.
 6. **Evaluation**: Evaluated the model's performance using R-squared and correlation values.
 
 ## Model Pipeline
 1. **Data Preprocessing**: The dataset is loaded and preprocessed by adding the previous day's return and removing rows with missing values. Outliers are removed using the IQR method to enhance data quality.
 2. **Feature Selection**: Emotion metrics, previous day's return, and control variables are selected as independent variables. These features aim to capture various factors influencing the actual return, the dependent variable.
-3. **Model Training**: An OLS regression model is trained using the selected features and `actual return`, with a constant added for the intercept. The `statsmodels` library fits the model, providing regression coefficients and statistical measures.
+3. **Model Training**: An OLS regression model is trained using the selected features and `actual_return`, with a constant added for the intercept. The `statsmodels` library fits the model, providing regression coefficients and statistical measures.
 4. **Model Evaluation**: The model's performance is evaluated using the summary of OLS results, R-squared, and the correlation between actual and predicted values. Error metrics (MAE, MSE, RMSE) quantify prediction accuracy.
-5. **Prediction**: The trained model predicts `actual return`, storing the predictions in a new column. The DataFrame with predictions is saved to a new Excel file for further analysis and validation.
+5. **Prediction**: The trained model predicts `actual_return`, storing the predictions in a new column. The DataFrame with predictions is saved to a new Excel file for further analysis and validation.
 
 ## Results
 - **Model Performance**: Achieved an R-squared value of 0.58 and a correlation value of 0.76, indicating a strong linear relationship and predictive accuracy.
@@ -35,7 +35,8 @@ This project explores the field of behavioral finance by examining the relations
 ## Code and Data
 The repository includes:
 - OLS implementation code
-- Prediction database obtained using the Emtract model
+- Prediction database obtained using the Emtract model alongwith financial data obtained from yahoo finance
+- Predicted return values database obtained using OLS model
 
 ## Conclusion
 This project successfully demonstrates the potential of using firm-specific investor emotions, derived from social media, to predict stock price movements. The findings highlight the importance of integrating behavioral finance concepts with traditional financial metrics for enhanced market prediction.
