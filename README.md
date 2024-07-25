@@ -17,17 +17,16 @@ This project explores the field of behavioral finance by examining the relations
 1. **Data Collection**: Scraped tweets data from Stocktwits for 4 selected firms.
 2. **Data Cleaning**: Cleaned the tweet text by removing usernames, URLs, stock symbols, and non-alphanumeric characters, converted the text to lowercase, and split it into individual words. The process uses regular expressions for pattern matching and the NLTK library for text preprocessing.
 3. **Emotion Extraction**: Used the Emtract model to extract emotions from the collected social media text, assigning each message a probability for 7 emotional states.
-4. **Financial Data Retrieval**: Collected financial metrics using the Yahoo Finance API.
-5. **Feature Engineering**: Processed and engineered features from the collected data.
-6. **Model Implementation**: Implemented an Ordinary Least Square regression model with outlier removal to predict daily return values.
-7. **Evaluation**: Evaluated the model's performance using R-squared and correlation values.
+4. **Financial Data Retrieval**: Collected financial metrics(open-close returns, market capitalisation, trading volume, and market volatility) using the Yahoo Finance API.
+5. **Model Implementation**: Implemented an Ordinary Least Square(OLS regression model with outlier removal to predict daily return values.
+6. **Evaluation**: Evaluated the model's performance using R-squared and correlation values.
 
 ## Model Pipeline
 1. **Data Preprocessing**: The dataset is loaded and preprocessed by adding the previous day's return and removing rows with missing values. Outliers are removed using the IQR method to enhance data quality.
 2. **Feature Selection**: Emotion metrics, previous day's return, and control variables are selected as independent variables. These features aim to capture various factors influencing the actual return, the dependent variable.
-3. **Model Training**: An OLS regression model is trained using the selected features and `actual_return`, with a constant added for the intercept. The `statsmodels` library fits the model, providing regression coefficients and statistical measures.
+3. **Model Training**: An OLS regression model is trained using the selected features and `actual return`, with a constant added for the intercept. The `statsmodels` library fits the model, providing regression coefficients and statistical measures.
 4. **Model Evaluation**: The model's performance is evaluated using the summary of OLS results, R-squared, and the correlation between actual and predicted values. Error metrics (MAE, MSE, RMSE) quantify prediction accuracy.
-5. **Prediction**: The trained model predicts `actual_return`, storing the predictions in a new column. The DataFrame with predictions is saved to a new Excel file for further analysis and validation.
+5. **Prediction**: The trained model predicts `actual return`, storing the predictions in a new column. The DataFrame with predictions is saved to a new Excel file for further analysis and validation.
 
 ## Results
 - **Model Performance**: Achieved an R-squared value of 0.58 and a correlation value of 0.76, indicating a strong linear relationship and predictive accuracy.
@@ -40,29 +39,6 @@ The repository includes:
 
 ## Conclusion
 This project successfully demonstrates the potential of using firm-specific investor emotions, derived from social media, to predict stock price movements. The findings highlight the importance of integrating behavioral finance concepts with traditional financial metrics for enhanced market prediction.
-
-## How to Run the Code
-1. Clone this repository to your local machine.
-    ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    ```
-2. Install the required libraries.
-    ```bash
-    pip install -r requirements.txt
-    ```
-3. Place your data file (`demo_us.xlsx`) in the repository's root directory.
-4. Run the `main.py` script to perform data preprocessing, feature selection, model training, evaluation, and prediction.
-    ```bash
-    python main.py
-    ```
-
-## Requirements
-- pandas
-- numpy
-- statsmodels
-- sklearn
-- nltk
-- yfinance
 
 ## Acknowledgements
 - Thanks to Stocktwits for providing the tweets data.
