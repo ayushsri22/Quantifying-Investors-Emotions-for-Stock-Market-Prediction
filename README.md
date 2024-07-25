@@ -42,5 +42,4 @@ The repository includes:
 This project successfully demonstrates the potential of using firm-specific investor emotions, derived from social media, to predict stock price movements. The findings highlight the importance of integrating behavioral finance concepts with traditional financial metrics for enhanced market prediction.
 
 ## Acknowledgements
-- Thanks to Stocktwits for providing the tweets data.
-- Thanks to Yahoo Finance for the financial metrics API.
+This project uses EmTract, an open-source tool based on the Vamossy and Skog [2023](https://github.com/dvamossy/EmTract) model, which employs deep learning to assign seven distinct emotional states to social media messages.
