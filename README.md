@@ -28,6 +28,12 @@ This project explores the field of behavioral finance by examining the relations
 5. **Model Implementation:** Implemented an OLS regression model with outlier removal to predict daily return values.
 6. **Evaluation:** Evaluated the model's performance using R-squared and correlation values.
 
+## Model Pipeline
+1. **Data Preprocessing**: Handle missing values, encode categorical variables, and scale numerical features.
+2. **Feature Selection**: Select the most relevant features for prediction.
+3. **Model Training**: Train the Logistic Regression model on the training dataset.
+4. **Model Evaluation**: Evaluate the model using accuracy, precision, R-squared value, Mean Absolute Error(MAE), Mean Squared Error(MSE), Root Mean Squared Error (RMSE).
+5. **Prediction**: Use the trained model to predict customer preferences.
 ## Results
 
 - **Model Performance:** Achieved an R-squared value of 0.58 and a correlation value of 0.76, indicating a strong linear relationship and predictive accuracy.
